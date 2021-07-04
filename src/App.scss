@@ -1,21 +1,10 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #dae3ff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   justify-items: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 #calc-container {
@@ -24,8 +13,69 @@
 
   font-size: calc(10px + 2vmin);
   color: white;
+  width: 11em;
 
   display: grid;
-  grid-template-rows: 1fr;
+  gap: 1px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+.two-column {
+  grid-column: span 2;
+  width: unset !important;
+}
+
+.two-row {
+  grid-row: span 2;
+  height: unset !important;
+}
+
+$buttonsize: 65px;
+$activecolor: yellow;
+
+.calc-button {
+  transition: 0.1s;
+  width: $buttonsize * 1.23;
+  height: $buttonsize;
+  justify-self: stretch;
+  align-self: stretch;
+  border: 1px solid rgba(0,0,0,0);
+  background-color: grey;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+
+  &:hover, &:active {
+    border: 2px solid $activecolor;
+    color: $activecolor;
+  }
+}
+
+$darkcolor: #282c34;
+
+.number {
+  background-color: $darkcolor;
+}
+
+#display {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em;
+  grid-column: span 4;
+  background-color: $darkcolor;
+}
+
+#readout {
+  @extend #display;
+  padding-bottom: 0;
+  font-size: 75%;
+  color: orange;
+  margin-top: auto;
+  margin-bottom: -1px;
+}
+
+.equals-button {
+
+}
+
